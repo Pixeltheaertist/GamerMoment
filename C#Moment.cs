@@ -83,7 +83,7 @@ private void GoNext (float TestFloat)
   TestFloatCheck(TestVar, TestFloat);
 
   // If the TestFloatCheck boolean returns true, yay!
-  if (TestFloatCheck(TestVar, TestFloat)
+  if (TestFloatCheck(TestVar, TestFloat))
   {
     // We did it!
     return;

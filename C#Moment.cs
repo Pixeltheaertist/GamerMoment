@@ -29,7 +29,7 @@
 
   // Equals signs: Equal signs come in a few different forms, all meaning different things in the code. It's pretty straightforward, so here's all of them:
     // = and == is for setting or checking. "=" will set a var/float/int/bool as such, example: "TestBool = false". "==" will CHECK or COMPARE two things, such as "if (TestBool == false)"
-    // >= or <= just means if A is less than or larger than B. Example: "if (TestFloat >= Testfloat2)", just checks if TestFloat has a higher number than TestFloat2.
+    // >= or <= just means if A is less or equal to than or larger or equal to than B. Example: "if (TestFloat >= Testfloat2)", just checks if TestFloat has a higher number or is equal to than TestFloat2.
     // +=, -=, *=, /=, will simply apply the mentioned math operation to the set. For example, "TestFloat += 5;" will ADD 5 to TestFloat's current number. / is divide, and * is multiply.
     // != is a false equal. It simply sees if something is NOT equal, example being: "if (Var1 != Var2)" will only run if Var1 is NOT equal to Var2
 

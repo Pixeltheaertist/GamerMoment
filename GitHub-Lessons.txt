@@ -10,4 +10,5 @@ From there, you can type "git clone origin", and it will transfer any files from
 To "push", you can use Git Bash, or just use the IDE. Most IDEs will be able to push to github manually, which is much easier.
 
 Branches are also important, you can add a new branch by typing "git checkout /b [BRANCHNAME]". This will make a new "branch" of your code that you can freely edit, and then merge later. NEVER edit the master branch, unless it's a tiny change.
-To find a branch, you can do "git checkout [BRANCHNAME]" to switch to that branch. Delete branches with "git checkout /D [BRANCHNAME]" once you're done with them.
+To find a branch, you can do "git checkout [BRANCHNAME]" to switch to that branch. Delete branches with "git checkout /D [BRANCHNAME]" once you're done with them. 
+To pull from a specific branch, you do "git pull [REMOTE] [BRANCH]". Same for pushing. If you push to your repository from a new branch, it'll automatically make a matching one to push to in github.

@@ -42,7 +42,7 @@
     // Break: Will "break" a loop, stopping it from continuing and canceling it. Useful if you've completed your goal with the loop and it no longer needs to exist.
     // Continue: Continue will SKIP an interation in a loop. Instead of breaking it, this instead will just cancel the current iteration and start on the next one. Useful for Foreach loops if you want to skip over certain entities.
 
-  // Comments: This while document is pretty much a comment. It's a note in code that is ignored by the system. Start comments with "//". Useful for documentation.
+  // Comments: This document is pretty much a big comment. It's a note in code that is ignored by the system. Start comments with "//". Useful for documentation.
 
 // You can also transfer variables, floats, etc, between blocks by including it in your block's calling part. Example "TestCheck(TestFloat, TestVar), will transfer TestFloat and TestVar to the block being called.
 // In blocks, the "void" or "bool" or other things define what the block is for. Void blocks are for executing code, and only that, they return nothing. Bool blocks will return true or false, and so on.

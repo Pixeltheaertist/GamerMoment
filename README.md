@@ -1,7 +1,7 @@
 # GamerMoment
 BLOODY HELL, IT'S A FUKKEN GIT REPO
 
-This github repo is a github repo, involving github.
+This git repo is a git repo, involving github.
 
 Git meaning github, and repo meaning repository.
 

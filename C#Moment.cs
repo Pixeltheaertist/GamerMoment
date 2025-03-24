@@ -3,7 +3,7 @@
 
 // They are ordered in a similar fashion to this:
 
-  private void ExampleBlock
+  private void ExampleBlock ()
   {
     // This is an example block. The "private" means that it cannot be referenced outside of this file. The "void" symbolizes that this does not return any value. I will get more into that later.
     // Main thing to know, this chunk here will be for executing code when called with "ExampleBlock()" in another block.
@@ -52,7 +52,7 @@
 public class ExampleClass
 {
 
-private void FinalExampleBlock
+private void FinalExampleBlock ()
 {
   // Create some floats
   float TestFloat = 0f;
@@ -76,14 +76,14 @@ private void FinalExampleBlock
 private void GoNext (float TestFloat)
 {
   // Make a var that is equal to testfloat.
-  var TestVar = TestFloat
+  var TestVar = TestFloat;
   // Multiplies Testvar by TestFloat (pretty much squaring it)
-  TestVar *= TestFloat
+  TestVar *= TestFloat;
   // Goes to TestFloatCheck (a boolean block)
   TestFloatCheck(TestVar, TestFloat);
 
   // If the TestFloatCheck boolean returns true, yay!
-  if (TestFloatCheck)
+  if (TestFloatCheck(TestVar, TestFloat)
   {
     // We did it!
     return;
@@ -91,7 +91,7 @@ private void GoNext (float TestFloat)
 }
 
 // A boolean block, which can return true or false
-private bool TestFloatCheck (var TestVar, float TestFloat)
+private bool TestFloatCheck (float TestVar, float TestFloat)
 {
   // Is TestVar larger than TestFloat?
   if (TestVar > TestFloat)

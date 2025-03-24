@@ -1,4 +1,4 @@
-// Basic C# education moment
+// Basic C# 101 type shit
 // C# is a coding language built off of code "blocks", or callable chunks of code.
 
 // They are ordered in a similar fashion to this:

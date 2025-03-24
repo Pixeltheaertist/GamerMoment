@@ -1,0 +1,13 @@
+Github is a useful website which allows us to collaborate together to all edit code, assets, sound, etc, remotely.
+
+You can contribute to the github by "forking" it, or making your own child-repository. Any changes there can be transferred here with a Pull Request (PR).
+To contribute to your FORK, you can set up an IDE (integrated developer environment), such as VSCODE or Rider (I prefer Rider).
+
+Next, install GitBash (or similar), and then you can set up a "remote" to your fork. A remote is a codename for your repository used in Git Bash. This just means you can send code from your local folders into your fork, and then to the github.
+Do this by opening git bash in an empty folder (right click anywhere, it'll be an option), and then type "git remote add origin (or whatever codename you want) https://github.com/Pixeltheaertist/GamerMoment.git"
+From there, you can type "git clone origin", and it will transfer any files from the github directly into your folder. From then on, to update your local folder you can do "git pull origin".
+
+To "push", you can use Git Bash, or just use the IDE. Most IDEs will be able to push to github manually, which is much easier.
+
+Branches are also important, you can add a new branch by typing "git checkout /b [BRANCHNAME]". This will make a new "branch" of your code that you can freely edit, and then merge later. NEVER edit the master branch, unless it's a tiny change.
+To find a branch, you can do "git checkout [BRANCHNAME]" to switch to that branch. Delete branches with "git checkout /D [BRANCHNAME]" once you're done with them.

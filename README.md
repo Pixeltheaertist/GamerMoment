@@ -1,0 +1,2 @@
+# GamerMoment
+BLOODY HELL, IT'S A FUKKEN GIT REPO

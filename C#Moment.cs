@@ -45,6 +45,7 @@
   // Comments: This while document is pretty much a comment. It's a note in code that is ignored by the system. Start comments with "//". Useful for documentation.
 
 // You can also transfer variables, floats, etc, between blocks by including it in your block's calling part. Example "TestCheck(TestFloat, TestVar), will transfer TestFloat and TestVar to the block being called.
+// In blocks, the "void" or "bool" or other things define what the block is for. Void blocks are for executing code, and only that, they return nothing. Bool blocks will return true or false, and so on.
 
 // Here's a full example class using stuff we've learned so far:
 

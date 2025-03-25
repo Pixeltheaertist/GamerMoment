@@ -94,9 +94,20 @@ public class BracerManager : MonoBehaviour
         }
     }
 
-    public void UseBracer()
+    public void UseBracer() // Do bracer actions, depending on mode.
     {
-    	// Do bracer actions, depending on mode.
+    	if (BracerMode == 1)
+     	{
+      		// Standard Attack, attacks/DMG haven't been coded yet so i'll do this later
+      	}
+       if (BracerMode == 8)
+     	{
+      		// Move Speed
+      	}
+       if (BracerMode == 16)
+     	{
+      		// Flight
+      	}
      	Debug.Log("Bracer has been used in mode: " + BracerMode);
     }
 }

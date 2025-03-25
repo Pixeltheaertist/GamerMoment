@@ -24,7 +24,7 @@ public class Character : MonoBehaviour
 				DeathController.Death(); // Removes all characters from the screen and calls the Death block
     				return;
    			}
-      			// Delete character normally instead of forcing game over
+      			// TODO: Delete character normally instead of forcing game over
 		}
 		
 		if (targetTile.difficultTerrain)

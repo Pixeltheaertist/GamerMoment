@@ -106,7 +106,7 @@ public class BracerManager : MonoBehaviour
      	{
       		// Standard Attack, attacks/DMG haven't been coded yet so i'll do this later
       	}
-       if (BracerMode == 8 && BracerEnergy >= 5)
+       if (BracerMode == 20 && BracerEnergy >= 5)
      	{
       		character.movementRange = 4
 		BracerEnergy -= 5

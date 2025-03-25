@@ -124,7 +124,7 @@ public class BracerManager : MonoBehaviour
    		character.currentHealth += 15;
      		chargeRate = -15;
 	}
- 	if (BracerMode == 8 && character.isHealing)
+ 	if (BracerMode == 8 && character.isHealing || character.currentHealth >= character.baseHealth)
   	{
    		character.isHealing = false;
      		chargeRate = baseChargeRate;
@@ -132,6 +132,10 @@ public class BracerManager : MonoBehaviour
  	if (BracerMode == 10 && BracerEnergy >= 1) //Heals Equal to Energy
   	{
    		character.currentHealth = BracerEnergy;
+     		if (character.currentHealth >= character.baseHealth)
+       		{
+	 		character.currentHealth = character.baseHealth
+		}
      		BracerEnergy = 0;
 	}
 	if (BracerMode == 16 && !character.isFlying && BracerEnergy >= 10) //Flight

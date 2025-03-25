@@ -109,7 +109,7 @@ public class BracerManager : MonoBehaviour
       	}
        if (BracerMode == 16)
      	{
-      		// Flight
+      		Character.isFlying = true
       	}
      	Debug.Log("Bracer has been used in mode: " + BracerMode);
     }

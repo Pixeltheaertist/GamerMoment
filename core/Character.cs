@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     public int baseMovementRange = 3; // Base unmodifiable movement range
     public int movementRange = 3;  // How many tiles the character can move per turn
     public bool isFlying = false; // Is this character flying?
-    public bool Player = true; // Is this YOU?
+    public bool Player = false; // Is this YOU?
     public int baseHealth = 100; // Base unmodifiable health
     public int currentHealth = 100; // Current health
     public bool isHealing = false; // If regen is active

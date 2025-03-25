@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
     public void Move(Vector2Int targetPosition)
     {
         Tile targetTile = gridManager.GetTileAtPosition(targetPosition);
+	Tile currentTile = gridManager.GetTileAtPosition(currentTilePosition);
 		
 		if (targetTile.isPit && !isFlying)
 		{
@@ -35,9 +36,11 @@ public class Character : MonoBehaviour
 			movementRange = movementRange - 1; // Reduce movement range by one
 		}
 
-        if (targetTile != null && targetTile.isWalkable) // If the tile is walkable and exists, move character.
+        if (targetTile != null && targetTile.isWalkable && !targetTile.isOccupied) // If the tile is walkable and exists, and is empty, move character.
         {
             currentTilePosition = targetPosition;
+	    targetTile.isOccupied = true; // occupy new tile
+     	    currentTile.isOccupied = false; // empty old tile
             transform.position = new Vector3(targetPosition.x * gridManager.tileSize, targetPosition.y * gridManager.tileSize, 0);
 			movementRange = baseMovementRange; // Restore movement range after difficult terrain
         }

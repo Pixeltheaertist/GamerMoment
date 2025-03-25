@@ -1,1 +1,0 @@
-This doc will hold documentation on core systems stored in GamerMoment/core

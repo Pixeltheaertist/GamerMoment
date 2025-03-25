@@ -7,10 +7,10 @@ public class Character : MonoBehaviour
 {
     public Vector2Int currentTilePosition;
     public GridManager gridManager;
-	public int baseMovementRange = 3; // Base unmodifiable movement range
+    public int baseMovementRange = 3; // Base unmodifiable movement range
     public int movementRange = 3;  // How many tiles the character can move per turn
-	public bool isFlying = false; // Is this character flying?
-	public bool Player = true; // Is this YOU?
+    public bool isFlying = false; // Is this character flying?
+    public bool Player = true; // Is this YOU?
 
     // This method is responsible for moving the character on the grid.
     public void Move(Vector2Int targetPosition)

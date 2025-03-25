@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     public int movementRange = 3;  // How many tiles the character can move per turn
     public bool isFlying = false; // Is this character flying?
     public bool Player = true; // Is this YOU?
+    public int currentHealth = 100;
 
     // This method is responsible for moving the character on the grid.
     public void Move(Vector2Int targetPosition)

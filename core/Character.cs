@@ -13,8 +13,8 @@ public class Character : MonoBehaviour
     public bool Player = true; // Is this YOU?
     public int baseHealth = 100; // Base unmodifiable health
     public int currentHealth = 100; // Current health
-    public bool isHealing = true; // If regen is active
-
+    public bool isHealing = false; // If regen is active
+    
     // This method is responsible for moving the character on the grid.
     public void Move(Vector2Int targetPosition)
     {

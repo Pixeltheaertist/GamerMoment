@@ -1,16 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Summary
-// This controls the Turn system for movement (and combat once it's made) for both the player and AI characters.
-// Summary
-
 public class TurnManager : MonoBehaviour
 {
     private List<Character> characters = new List<Character>();
     private int currentCharacterIndex = 0;
     private bool isPlayerTurn = true;
-    public DeathController deathController;
+	public DeathController deathController;
 
     public void AddCharacter(Character character)
     {
@@ -19,12 +15,12 @@ public class TurnManager : MonoBehaviour
 
     void Start()
     {
+        // Example: Add characters (can be done dynamically in your game)
         AddCharacter(GameObject.Find("PlayerCharacter").GetComponent<Character>());
         // Add other characters like enemies, etc.
-	
-	if (deathController != null)
+		if (deathController != null)
         {
-            deathController.characters = characters; // populate DeathController's list with our list here, so it can be used when Game Over is forced.
+            deathController.characters = characters;
         }
     }
 
@@ -32,11 +28,11 @@ public class TurnManager : MonoBehaviour
     {
         if (isPlayerTurn)
         {
-            HandlePlayerInput(); // Player turn! YIPPEE
+            HandlePlayerInput();
         }
         else
         {
-            HandleAI(); // AI's turn
+            HandleAI();
         }
     }
 
@@ -84,12 +80,27 @@ public class TurnManager : MonoBehaviour
                 EndTurn();
             }
         }
+		
+		if (Input.GetKeyDown(KeyCode.Alpha1)) // Change bracer segment 1
+        {
+            BracerManager.BraceChange1();
+        }
+		
+		if (Input.GetKeyDown(KeyCode.Alpha2)) // Change bracer segment 2
+        {
+            BracerManager.BraceChange2();
+        }
+		
+		if (Input.GetKeyDown(KeyCode.Alpha3)) // Change bracer segment 3
+        {
+            BracerManager.BraceChange3();
+        }
     }
 
     void HandleAI()
     {
-        // Logic for the AIs, which i'll code later. For now, just skips the turn.
-	// AI should randomly choose between defending, moving or attacking the player (if the player is within notice range, otherwise just move)
+        // AI logic for other characters (e.g., move randomly, or attack, etc.)
+        // For now, just a placeholder for the AI logic
         EndTurn();
     }
 

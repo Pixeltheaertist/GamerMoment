@@ -1,4 +1,7 @@
 using UnityEngine;
+//Summary
+// This controls the death screen, and deletes all characters from the screen upon PLAYER death.
+//Summary
 
 public class DeathController : MonoBehaviour
 {

@@ -9,7 +9,7 @@ public class BracerManager : MonoBehaviour
 	public int Brace2 = 1;
 	public int Brace3 = 1;
 	public int BracerMode = 1;
-	// Bracer modes range from 1-18, depending on the current combination.
+	// Bracer modes range from 1-26, depending on the current combination.
 
  	private Dictionary<string, int> bracerCombinationModes = new Dictionary<string, int>();
 
@@ -34,6 +34,13 @@ public class BracerManager : MonoBehaviour
         bracerCombinationModes.Add("2-3-3", 17);
         bracerCombinationModes.Add("3-2-1", 18);
         bracerCombinationModes.Add("3-2-2", 19);
+        bracerCombinationModes.Add("2-1-2", 20);
+        bracerCombinationModes.Add("3-1-2", 21);
+        bracerCombinationModes.Add("3-1-3", 22);
+        bracerCombinationModes.Add("2-2-3", 23);
+        bracerCombinationModes.Add("3-2-3", 24);
+        bracerCombinationModes.Add("3-3-2", 25);
+        bracerCombinationModes.Add("3-3-3", 26);
     }
     
     public void BraceChange1()

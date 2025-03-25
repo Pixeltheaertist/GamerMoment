@@ -131,6 +131,13 @@ public class TurnManager : MonoBehaviour
         currentCharacterIndex = (currentCharacterIndex + 1) % characters.Count;
 	bracerManager.UpdateBracer();
         isPlayerTurn = !isPlayerTurn; // Switch turns
-	bracerManager.BracerEnergy += 10;
+	if (bracerManager.BracerEnergy > 100)
+ 	{
+	   bracerManager.BracerEnergy += 10;
+    	   if (bracerManager.BracerEnergy >= 100)
+      	   {
+	       bracerManager.BracerEnergy = 100;	
+	   }
+	}
     }
 }

@@ -17,9 +17,14 @@ public class Character : MonoBehaviour
     {
         Tile targetTile = gridManager.GetTileAtPosition(targetPosition);
 		
-		if (targetTile.isPit && !isFlying && Player)
+		if (targetTile.isPit && !isFlying)
 		{
-			DeathController.Death(); // Removes all characters from the screen and calls the Death block
+  			if (Player) // If the character is the Player, force Game Over
+     			{
+				DeathController.Death(); // Removes all characters from the screen and calls the Death block
+    				return;
+   			}
+      			// Delete character normally instead of forcing game over
 		}
 		
 		if (targetTile.difficultTerrain)
@@ -27,7 +32,7 @@ public class Character : MonoBehaviour
 			movementRange = movementRange - 1; // Reduce movement range by one
 		}
 
-        if (targetTile != null && targetTile.isWalkable)
+        if (targetTile != null && targetTile.isWalkable) // If the tile is walkable and exists, move character.
         {
             currentTilePosition = targetPosition;
             transform.position = new Vector3(targetPosition.x * gridManager.tileSize, targetPosition.y * gridManager.tileSize, 0);

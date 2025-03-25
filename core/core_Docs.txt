@@ -9,3 +9,5 @@ DeathManager - Handles dying. Contains the systems that trigger a game over, del
 GridManager - Handles grids and tile calculation. Notifies characters on positions of targetted tiles for movement.
 
 Tile - Handles base tile types, including characteristics that impede or kill characters depending on character attributes.
+
+BracerManager - Controls changing Bracer rings, and defines the current bracer "mode"

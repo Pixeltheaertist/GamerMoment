@@ -10,4 +10,5 @@ public class Tile : MonoBehaviour
     public bool difficultTerrain = false; // Whether this tile is harder to traverse
     public bool isPit = false; // Whether this tile will only allow flying creatures to safely cross
     public bool isOccupied = false; // Is there a character on this tile?
+    public bool onFire = false; // Is the tile on fire?
 }

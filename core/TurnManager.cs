@@ -133,7 +133,7 @@ public class TurnManager : MonoBehaviour
         isPlayerTurn = !isPlayerTurn; // Switch turns
 	if (bracerManager.BracerEnergy > 100)
  	{
-	   bracerManager.BracerEnergy += bracerManager.rechargeRate;
+	   bracerManager.BracerEnergy += bracerManager.chargeRate;
     	   if (bracerManager.BracerEnergy >= 100)
       	   {
 	       bracerManager.BracerEnergy = 100;	

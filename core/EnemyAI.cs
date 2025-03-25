@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehavior
 {
-      // This is where I would put my variables. IF I HAD ANY
+      public Character character;
       
-      // Public callable function for idling
-            //Randomly generate a number from 1 to 4 with each number representing a direction
-            //If chosen direction not wall and not hazard, move one tile in that direction.
       //Public callable function for attacking
-            //Check if enemy type is ranged or melee
+            get 
+            if (character.attackRange >= 
+            
+            }
                   //If melee, check if player is out of range
                         //If out of range, move towards player
                         //If in range, attack player

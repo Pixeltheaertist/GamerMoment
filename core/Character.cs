@@ -1,4 +1,7 @@
 using UnityEngine;
+// Summary
+// This system controls the base character attributes and movement based on tile interactions.
+//Summary
 
 public class Character : MonoBehaviour
 {

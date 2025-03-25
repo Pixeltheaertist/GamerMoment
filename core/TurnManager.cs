@@ -6,7 +6,8 @@ public class TurnManager : MonoBehaviour
     private List<Character> characters = new List<Character>();
     private int currentCharacterIndex = 0;
     private bool isPlayerTurn = true;
-	public DeathController deathController;
+    public DeathController deathController;
+    public BracerManager bracerManager;
 
     public void AddCharacter(Character character)
     {
@@ -83,17 +84,17 @@ public class TurnManager : MonoBehaviour
 		
 		if (Input.GetKeyDown(KeyCode.Alpha1)) // Change bracer segment 1
         {
-            BracerManager.BraceChange1();
+            bracerManager.BraceChange1();
         }
 		
 		if (Input.GetKeyDown(KeyCode.Alpha2)) // Change bracer segment 2
         {
-            BracerManager.BraceChange2();
+            bracerManager.BraceChange2();
         }
 		
 		if (Input.GetKeyDown(KeyCode.Alpha3)) // Change bracer segment 3
         {
-            BracerManager.BraceChange3();
+            bracerManager.BraceChange3();
         }
     }
 
@@ -107,6 +108,7 @@ public class TurnManager : MonoBehaviour
     void EndTurn()
     {
         currentCharacterIndex = (currentCharacterIndex + 1) % characters.Count;
+	bracerManager.UpdateBracer();
         isPlayerTurn = !isPlayerTurn; // Switch turns
     }
 }

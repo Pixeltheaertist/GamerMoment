@@ -12,9 +12,11 @@ public class BracerManager : MonoBehaviour
 	// Bracer modes range from 1-27, depending on the current combination.
 
  	private Dictionary<string, int> bracerCombinationModes = new Dictionary<string, int>();
+  	// Dictionary turns a "string" into an "int", so that BracerMode can be properly updated depending on the combination.
 
     void Start()
-    {
+    {	
+    	// Adds all possible Bracer combinations to the dictionary "bracerCombinationModes", so it can be translated to BracerMode.
         bracerCombinationModes.Add("1-1-1", 1);
         bracerCombinationModes.Add("2-1-1", 2);
         bracerCombinationModes.Add("3-1-1", 3);
@@ -79,13 +81,13 @@ public class BracerManager : MonoBehaviour
 	
 	// This will store combinations that the bracer is in, or it's "mode"
 
- 	public void UpdateBracer()
+ 	public void UpdateBracer() // Turns the current Brace# variables into a string, and then references it to the dictionary. 
     {
         string combinationKey = $"{Brace1}-{Brace2}-{Brace3}";
 
         if (bracerCombinationModes.ContainsKey(combinationKey))
         {
-            BracerMode = bracerCombinationModes[combinationKey];
+            BracerMode = bracerCombinationModes[combinationKey]; // Turns the BracerMode into the proper integer by translating it with the dictionary
             Debug.Log("BracerMode updated to: " + BracerMode);
         }
         else

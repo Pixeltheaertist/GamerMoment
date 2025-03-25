@@ -114,9 +114,24 @@ public class BracerManager : MonoBehaviour
 	   	chargeRate = baseChargeRate;
 	}
  
-    	if (BracerMode == 1)
+    	if (BracerMode == 1 && BracerEnegery >= 5) // Standard Attack, Sword
      	{
-      		// Standard Attack, attacks/DMG haven't been coded yet so i'll do this later
+      		character.attackDamage = 10;
+		character.attackRange = 2;
+  		BracerEnergy -= 10;
+      	}
+    	if (BracerMode == 2 && BracerEnegery >= 15) // Standard Ranged Attack, Rifle
+     	{
+      		character.attackDamage = 8;
+		character.attackRange = 4;
+  		BracerEnergy -= 15;
+      	}
+    	if (BracerMode == 3 && BracerEnergy >= 20) // Standard Splash Attack, War Hammer
+     	{
+      		character.attackDamage = 18;
+		character.attackRange = 1;
+  		character.attackSplash = true;
+  		BracerEnergy -= 20;
       	}
 	if (BracerMode == 8 && !character.isHealing && BracerEnergy >= 15) //Regen of 15
 	{
@@ -152,6 +167,13 @@ public class BracerManager : MonoBehaviour
      	{
 		character.movementRange = 4;
 		BracerEnergy -= 5;
+      	}
+    	if (BracerMode == 21 && BracerEnergy >= 50) //Bomb, Splash Attack, any tile it hits gets set on fire
+     	{
+      		character.attackDamage = 45;
+		character.attackRange = 3;
+  		character.attackSplash = true;
+  		BracerEnergy -= 50;
       	}
      	Debug.Log("Bracer has been used in mode: " + BracerMode);
       	LastBracerMode = BracerMode;

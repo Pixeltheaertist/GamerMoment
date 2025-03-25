@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     public int attackDamage = 1; // Damage, set to 1 so everything does atleast some damage
     public int attackRange = 1; // How far away the attack can reach, 1 is melee range
     public bool attackSplash = false; // If an attack splashes to all tiles around it
+    public bool isPoisoned = false; // Is this character poisoned?
     
     // This method is responsible for moving the character on the grid.
     public void Move(Vector2Int targetPosition)

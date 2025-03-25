@@ -131,7 +131,7 @@ public class BracerManager : MonoBehaviour
 	}
  	if (BracerMode == 10 && BracerEnergy >= 1) //Heals Equal to Energy
   	{
-   		character.currentHealth = BracerEnergy;
+   		character.currentHealth += BracerEnergy;
      		if (character.currentHealth >= character.baseHealth)
        		{
 	 		character.currentHealth = character.baseHealth

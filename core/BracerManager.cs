@@ -8,6 +8,7 @@ public class BracerManager : MonoBehaviour
 	public int Brace1 = 1;
 	public int Brace2 = 1;
 	public int Brace3 = 1;
+ 	public int LastBracerMode = 1;
 	public int BracerMode = 1;
  	public int BracerEnergy = 100;
   	public Character character;
@@ -102,26 +103,33 @@ public class BracerManager : MonoBehaviour
 
     public void UseBracer() // Do bracer actions, depending on mode.
     {
+    	if (LastBracerMode != BracerMode && character.isFlying)
+     	{
+      	   character.isFlying = false;
+	   chargeRate = baseChargeRate;
+	}
+ 
     	if (BracerMode == 1)
      	{
       		// Standard Attack, attacks/DMG haven't been coded yet so i'll do this later
       	}
        if (BracerMode == 20 && BracerEnergy >= 5)
      	{
-      		character.movementRange = 4
-		BracerEnergy -= 5
+      		character.movementRange = 4;
+		BracerEnergy -= 5;
       	}
 
-       if (BracerMode == 16 && !isFlying = false && BracerEnergy >= 10)
+       if (BracerMode == 16 && !character.isFlying && BracerEnergy >= 10)
      	{
-      		character.isFlying = true
-		chargeRate = -10
+      		character.isFlying = true;
+		chargeRate = -10;
   	}
-  	if (BracerMode == 16 && isFlying)
+  	if (BracerMode == 16 && character.isFlying)
     	{
-      		character.isFlying = false
-		chargeRate = baseChargeRate
+      		character.isFlying = false;
+		chargeRate = baseChargeRate;
       	}
      	Debug.Log("Bracer has been used in mode: " + BracerMode);
+      	LastBracerMode = BracerMode;
     }
 }

@@ -8,9 +8,12 @@ public class EnemyAI : MonoBehavior
       public Character character;
       
       //Public callable function for attacking
-            get 
-            if (character.attackRange >= 
+            get character.Player
+            get character.currentTilePosition
             
+            if (character.attackRange >= playerDistance)
+            {
+                        
             }
                   //If melee, check if player is out of range
                         //If out of range, move towards player

@@ -9,4 +9,5 @@ public class Tile : MonoBehaviour
     public bool isDeadly = false; // Whether this tile will kill you once stepped on
     public bool difficultTerrain = false; // Whether this tile is harder to traverse
     public bool isPit = false; // Whether this tile will only allow flying creatures to safely cross
+    public bool isOccupied = false; // Is there a character on this tile?
 }

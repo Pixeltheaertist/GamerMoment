@@ -6,6 +6,7 @@ public class TurnManager : MonoBehaviour
     private List<Character> characters = new List<Character>();
     private int currentCharacterIndex = 0;
     private bool isPlayerTurn = true;
+	public DeathController deathController;
 
     public void AddCharacter(Character character)
     {
@@ -17,6 +18,10 @@ public class TurnManager : MonoBehaviour
         // Example: Add characters (can be done dynamically in your game)
         AddCharacter(GameObject.Find("PlayerCharacter").GetComponent<Character>());
         // Add other characters like enemies, etc.
+		if (deathController != null)
+        {
+            deathController.characters = characters;
+        }
     }
 
     void Update()

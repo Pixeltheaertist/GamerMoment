@@ -175,6 +175,10 @@ public class BracerManager : MonoBehaviour
   		character.attackSplash = true;
   		BracerEnergy -= 50;
       	}
+       if (BracerMode == 27) // Confetti!
+       {
+       		BracerEnergy += 1;
+       }
      	Debug.Log("Bracer has been used in mode: " + BracerMode);
       	LastBracerMode = BracerMode;
     }

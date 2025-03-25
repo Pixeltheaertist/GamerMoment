@@ -82,19 +82,24 @@ public class TurnManager : MonoBehaviour
             }
         }
 		
-		if (Input.GetKeyDown(KeyCode.Alpha1)) // Change bracer segment 1
+	if (Input.GetKeyDown(KeyCode.Alpha1)) // Change bracer segment 1
         {
             bracerManager.BraceChange1();
         }
 		
-		if (Input.GetKeyDown(KeyCode.Alpha2)) // Change bracer segment 2
+	if (Input.GetKeyDown(KeyCode.Alpha2)) // Change bracer segment 2
         {
             bracerManager.BraceChange2();
         }
 		
-		if (Input.GetKeyDown(KeyCode.Alpha3)) // Change bracer segment 3
+	if (Input.GetKeyDown(KeyCode.Alpha3)) // Change bracer segment 3
         {
             bracerManager.BraceChange3();
+        }
+	
+	if (Input.GetKeyDown(KeyCode.Return)) // Skip your turn
+        {
+            EndTurn()
         }
     }
 

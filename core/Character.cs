@@ -1,5 +1,5 @@
 using UnityEngine;
-// Summary
+//Summary
 // This system controls the base character attributes and movement based on tile interactions.
 //Summary
 

@@ -105,21 +105,36 @@ public class BracerManager : MonoBehaviour
     {
     	if (LastBracerMode != BracerMode && character.isFlying)
      	{
-      	   character.isFlying = false;
-	   chargeRate = baseChargeRate;
+      	   	character.isFlying = false;
+	   	chargeRate = baseChargeRate;
+	}
+     	if (LastBracerMode != BracerMode && character.isHealing)
+     	{
+      	   	character.isHealing = false;
+	   	chargeRate = baseChargeRate;
 	}
  
     	if (BracerMode == 1)
      	{
       		// Standard Attack, attacks/DMG haven't been coded yet so i'll do this later
       	}
-       if (BracerMode == 20 && BracerEnergy >= 5)
-     	{
-      		character.movementRange = 4;
-		BracerEnergy -= 5;
-      	}
-
-       if (BracerMode == 16 && !character.isFlying && BracerEnergy >= 10)
+	if (BracerMode == 8 && !character.isHealing && BracerEnergy >= 15) //Regen of 15
+	{
+ 		character.isHealing = true;
+   		character.health =+ 15;
+     		chargeRate = -15;
+	}
+ 	if (BracerMode == 8 && character.isHealing)
+  	{
+   		character.isHealing = false;
+     		chargeRate = baseChargeRate;
+	}
+ 	if (BracerMode == 10 && BracerEnergy >= 1) //Heals Equal to Energy
+  	{
+   		character.health = BracerEnergy;
+     		BracerEnergy = 0;
+	}
+	if (BracerMode == 16 && !character.isFlying && BracerEnergy >= 10) //Flight
      	{
       		character.isFlying = true;
 		chargeRate = -10;
@@ -128,6 +143,11 @@ public class BracerManager : MonoBehaviour
     	{
       		character.isFlying = false;
 		chargeRate = baseChargeRate;
+      	}
+       	if (BracerMode == 20 && BracerEnergy >= 5) //Movement buff, maybe it also disables dangerous terrain?
+     	{
+		character.movementRange = 4;
+		BracerEnergy -= 5;
       	}
      	Debug.Log("Bracer has been used in mode: " + BracerMode);
       	LastBracerMode = BracerMode;

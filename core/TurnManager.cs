@@ -1,6 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// CONTROL LAYOUT:
+// W: Move up
+// S: Move down
+// A: Move left
+// D: Move right
+// Enter: Skip turn
+// 1: Rotate Bracer slot one
+// 2: Rotate Bracer slot two
+// 3: Rotate Bracer slot three
+
 public class TurnManager : MonoBehaviour
 {
     private List<Character> characters = new List<Character>();

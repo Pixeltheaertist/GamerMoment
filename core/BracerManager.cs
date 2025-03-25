@@ -133,6 +133,12 @@ public class BracerManager : MonoBehaviour
   		character.attackSplash = true;
   		BracerEnergy -= 20;
       	}
+	if (BracerMode == 6 && Bracer Energy >= 25) // Charge that applies poison
+ 	{
+  		character.attackDamage = 12;
+		character.attackRange = 1;
+  		BracerEnergy -= 25;
+	}
 	if (BracerMode == 8 && !character.isHealing && BracerEnergy >= 15) //Regen of 15
 	{
  		character.isHealing = true;
@@ -163,6 +169,12 @@ public class BracerManager : MonoBehaviour
       		character.isFlying = false;
 		chargeRate = baseChargeRate;
       	}
+       	if (BracerMode == 18 && BracerEnergy >= 75) //Huge laser in all directions
+	{
+		character.attackDamage = 75;
+		character.attackRange = 20;
+  		BracerEnergy -= 75;
+    	}
        	if (BracerMode == 20 && BracerEnergy >= 5) //Movement buff, maybe it also disables dangerous terrain?
      	{
 		character.movementRange = 4;

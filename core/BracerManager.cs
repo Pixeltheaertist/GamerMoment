@@ -105,7 +105,7 @@ public class BracerManager : MonoBehaviour
       	}
        if (BracerMode == 8)
      	{
-      		// Move Speed
+      		Character.movementRange = 4
       	}
        if (BracerMode == 16)
      	{

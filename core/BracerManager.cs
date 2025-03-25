@@ -109,10 +109,15 @@ public class BracerManager : MonoBehaviour
       		character.movementRange = 4
 		BracerEnergy -= 5
       	}
-       if (BracerMode == 16)
+
+       if (BracerMode == 16) && character.isFlying = false
      	{
       		character.isFlying = true
 		BracerEnergy -= 10
+  	}
+  	if (BracerMode == 16) && character.isFlying = true
+    	{
+      		character.isFlying = false
       	}
      	Debug.Log("Bracer has been used in mode: " + BracerMode);
     }

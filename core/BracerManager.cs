@@ -115,11 +115,12 @@ public class BracerManager : MonoBehaviour
        if (BracerMode == 16 && !isFlying = false && BracerEnergy >= 10)
      	{
       		character.isFlying = true
-		BracerEnergy -= 10
+		chargeRate = -10
   	}
   	if (BracerMode == 16 && isFlying)
     	{
       		character.isFlying = false
+		chargeRate = baseChargeRate
       	}
      	Debug.Log("Bracer has been used in mode: " + BracerMode);
     }

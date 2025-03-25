@@ -92,4 +92,9 @@ public class BracerManager : MonoBehaviour
             Debug.LogWarning("Bracer combination not found. Current combination: " + combinationKey);
         }
     }
+
+    public void UseBracer()
+    {
+    	// Do bracer actions, depending on mode.
+    }
 }

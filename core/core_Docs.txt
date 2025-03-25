@@ -1,4 +1,4 @@
-This file holds documentation on core systems stored in GamerMoment/core
+This file holds documentation on core systems stored in Secret_TECHnique_2025/core
 
 TurnManager - Handles turn management for movement, both player and AI
 

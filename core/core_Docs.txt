@@ -13,4 +13,4 @@ Tile - Handles base tile types, including characteristics that impede or kill ch
     Relevant variables: difficultTerrain, isPit, isDeadly, isWalkable, hasCorpse
 
 BracerManager - Controls changing Bracer rings, and defines the current bracer "mode" as well as bracer interactions
-    Relevant variables: BracerEnergy, BracerMode
+    Relevant variables: BracerEnergy, BracerMode, chargeRate, baseChargeRate

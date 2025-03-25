@@ -10,6 +10,7 @@ public class BracerManager : MonoBehaviour
 	public int Brace3 = 1;
 	public int BracerMode = 1;
  	public int BracerEnergy = 100;
+  	public Character character;
 	// Bracer modes range from 1-27, depending on the current combination.
 
  	private Dictionary<string, int> bracerCombinationModes = new Dictionary<string, int>();
@@ -105,12 +106,12 @@ public class BracerManager : MonoBehaviour
       	}
        if (BracerMode == 8)
      	{
-      		Character.movementRange = 4
+      		character.movementRange = 4
 		BracerEnergy -= 5
       	}
        if (BracerMode == 16)
      	{
-      		Character.isFlying = true
+      		character.isFlying = true
 		BracerEnergy -= 10
       	}
      	Debug.Log("Bracer has been used in mode: " + BracerMode);

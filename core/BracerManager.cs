@@ -9,6 +9,7 @@ public class BracerManager : MonoBehaviour
 	public int Brace2 = 1;
 	public int Brace3 = 1;
 	public int BracerMode = 1;
+ 	public int BracerEnergy = 100;
 	// Bracer modes range from 1-27, depending on the current combination.
 
  	private Dictionary<string, int> bracerCombinationModes = new Dictionary<string, int>();

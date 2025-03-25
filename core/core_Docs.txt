@@ -10,4 +10,4 @@ GridManager - Handles grids and tile calculation. Notifies characters on positio
 
 Tile - Handles base tile types, including characteristics that impede or kill characters depending on character attributes.
 
-BracerManager - Controls changing Bracer rings, and defines the current bracer "mode"
+BracerManager - Controls changing Bracer rings, and defines the current bracer "mode" as well as bracer interactions

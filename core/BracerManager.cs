@@ -110,12 +110,12 @@ public class BracerManager : MonoBehaviour
 		BracerEnergy -= 5
       	}
 
-       if (BracerMode == 16) && character.isFlying = false && BracerEnergy >= 10
+       if (BracerMode == 16 && !isFlying = false && BracerEnergy >= 10)
      	{
       		character.isFlying = true
 		BracerEnergy -= 10
   	}
-  	if (BracerMode == 16) && character.isFlying = true
+  	if (BracerMode == 16 && isFlying)
     	{
       		character.isFlying = false
       	}

@@ -15,12 +15,12 @@ public class TurnManager : MonoBehaviour
 
     void Start()
     {
-        // Example: Add characters (can be done dynamically in your game)
         AddCharacter(GameObject.Find("PlayerCharacter").GetComponent<Character>());
         // Add other characters like enemies, etc.
-		if (deathController != null)
+	
+	if (deathController != null)
         {
-            deathController.characters = characters;
+            deathController.characters = characters; // populate DeathController's list with our list here, so it can be used when Game Over is forced.
         }
     }
 
@@ -28,11 +28,11 @@ public class TurnManager : MonoBehaviour
     {
         if (isPlayerTurn)
         {
-            HandlePlayerInput();
+            HandlePlayerInput(); // Player turn! YIPPEE
         }
         else
         {
-            HandleAI();
+            HandleAI(); // AI's turn
         }
     }
 
@@ -84,8 +84,8 @@ public class TurnManager : MonoBehaviour
 
     void HandleAI()
     {
-        // AI logic for other characters (e.g., move randomly, or attack, etc.)
-        // For now, just a placeholder for the AI logic
+        // Logic for the AIs, which i'll code later. For now, just skips the turn.
+	// AI should randomly choose between defending, moving or attacking the player (if the player is within notice range, otherwise just move)
         EndTurn();
     }
 

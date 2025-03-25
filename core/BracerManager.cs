@@ -97,5 +97,6 @@ public class BracerManager : MonoBehaviour
     public void UseBracer()
     {
     	// Do bracer actions, depending on mode.
+     	Debug.Log("Bracer has been used in mode: " + BracerMode);
     }
 }

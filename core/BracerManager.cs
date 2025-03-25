@@ -104,13 +104,13 @@ public class BracerManager : MonoBehaviour
      	{
       		// Standard Attack, attacks/DMG haven't been coded yet so i'll do this later
       	}
-       if (BracerMode == 8)
+       if (BracerMode == 8) && BracerEnergy >= 5
      	{
       		character.movementRange = 4
 		BracerEnergy -= 5
       	}
 
-       if (BracerMode == 16) && character.isFlying = false
+       if (BracerMode == 16) && character.isFlying = false && BracerEnergy >= 10
      	{
       		character.isFlying = true
 		BracerEnergy -= 10

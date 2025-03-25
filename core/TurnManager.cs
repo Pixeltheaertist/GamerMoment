@@ -26,10 +26,9 @@ public class TurnManager : MonoBehaviour
 
     void Start()
     {
-        // Example: Add characters (can be done dynamically in your game)
         AddCharacter(GameObject.Find("PlayerCharacter").GetComponent<Character>());
-        // Add other characters like enemies, etc.
-		if (deathController != null)
+	
+	if (deathController != null)
         {
             deathController.characters = characters;
         }

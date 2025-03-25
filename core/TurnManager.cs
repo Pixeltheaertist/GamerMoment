@@ -108,8 +108,15 @@ public class TurnManager : MonoBehaviour
 	
 	if (Input.GetKeyDown(KeyCode.Return)) // Skip your turn
         {
-            EndTurn()
+            EndTurn();
         }
+
+ 	if (Input.GetKeyDown(KeyCode.Space)) // Use your Bracer in it's current mode
+        {
+	    bracerManager.UseBracer();
+            EndTurn();
+        }
+ 
     }
 
     void HandleAI()

@@ -8,8 +8,8 @@ public class EnemyAI : MonoBehavior
       public Character character;
       
       //Public callable function for attacking
-            get character.Player
-            get character.currentTilePosition
+            get return{character.Player;}
+            get return{character.currentTilePosition;}
             
             if (character.attackRange >= playerDistance)
             {

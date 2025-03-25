@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Summary
+// This controls the Turn system for movement (and combat once it's made) for both the player and AI characters.
+// Summary
+
 public class TurnManager : MonoBehaviour
 {
     private List<Character> characters = new List<Character>();

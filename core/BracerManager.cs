@@ -11,6 +11,7 @@ public class BracerManager : MonoBehaviour
 	public int BracerMode = 1;
  	public int BracerEnergy = 100;
   	public Character character;
+   	public int baseChargeRate = 10;
    	public int chargeRate = 10;
 	// Bracer modes range from 1-27, depending on the current combination.
 

@@ -10,7 +10,7 @@ public class TurnManager : MonoBehaviour
     private List<Character> characters = new List<Character>();
     private int currentCharacterIndex = 0;
     private bool isPlayerTurn = true;
-	public DeathController deathController;
+    public DeathController deathController;
 
     public void AddCharacter(Character character)
     {

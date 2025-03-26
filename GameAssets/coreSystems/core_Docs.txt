@@ -2,10 +2,11 @@ This file holds documentation on core systems stored in Secret_TECHnique_2025/co
 
 
 TurnManager - Handles turn management for movement, both player and AI
-     > Relevant variables: playerCharacter
+     > Relevant variables: playerCharacter, isPlayerTurn
 
 Character - Handles characters. This includes applying movement, affecting characters based on Tile interaction, and controlling character attributes.
-     > Relevant variables: Player, currentHealth, baseHealth, isFlying
+     > Relevant variables: Player, currentHealth, baseHealth, isFlying, aiming, movementRange, baseMovementRange, isHealing, attackDamage, attackRange, attackSplash, isPoisoned
+     > Relevant code: SnapToNearestTile, GetNearestTile, Move
 
 DeathManager - Handles dying. Contains the systems that trigger a game over, deleting all characters and then overlaying a screen.
 
@@ -13,6 +14,13 @@ GridManager - Handles grids and tile calculation. Notifies characters on positio
 
 Tile - Handles base tile types, including characteristics that impede or kill characters depending on character attributes.
     > Relevant variables: difficultTerrain, isPit, isDeadly, isWalkable, hasCorpse, onFire, isOccupied, occupiedBy
+     > Relevant code: GetTileAtPosition
 
 BracerManager - Controls changing Bracer rings, and defines the current bracer "mode" as well as bracer interactions
-    > Relevant variables: BracerEnergy, BracerMode, chargeRate, baseChargeRate, LastBracerMode
+    > Relevant variables: BracerEnergy, BracerMode, chargeRate, baseChargeRate, LastBracerMode, weaponMode, player,
+
+CombatManager - Controls combat, including walk-combat and aimed attacks
+     > Relevant variables: combatPhase 
+     > Relevant code: DoWalkCombat, StartCombat, GetTileInDirection
+
+

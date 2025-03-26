@@ -2,6 +2,7 @@ This file holds documentation on core systems stored in Secret_TECHnique_2025/co
 
 
 TurnManager - Handles turn management for movement, both player and AI
+     > Relevant variables: playerCharacter
 
 Character - Handles characters. This includes applying movement, affecting characters based on Tile interaction, and controlling character attributes.
      > Relevant variables: Player, currentHealth, baseHealth, isFlying

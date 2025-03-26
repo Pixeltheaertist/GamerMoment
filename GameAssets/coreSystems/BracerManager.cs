@@ -190,7 +190,7 @@ public class BracerManager : MonoBehaviour
       	}
         if (BracerMode == 26) // 3-3-3 combo, perhaps shield or a random TP. Neither of those are set up code wise yet.
 	{
- 		//code goes here
+ 		//code goes here. 6 shield no move
 	}
 	if (BracerMode == 27) // Confetti!
 	{

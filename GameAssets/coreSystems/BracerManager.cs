@@ -144,7 +144,7 @@ public class BracerManager : MonoBehaviour
 	{
  		player.isHealing = true;
    		player.currentHealth += 15;
-     		chargeRate = -15;
+     		chargeRate -= 15;
        		weaponMode = false;
 	}
  	if (BracerMode == 8 && player.isHealing || player.currentHealth >= player.baseHealth)
@@ -165,7 +165,7 @@ public class BracerManager : MonoBehaviour
 	if (BracerMode == 16 && !player.isFlying && BracerEnergy >= 10) //Flight
      	{
       		player.isFlying = true;
-		chargeRate = -10;
+		chargeRate -= 10;
   		weaponMode = false;
   	}
   	if (BracerMode == 16 && player.isFlying)

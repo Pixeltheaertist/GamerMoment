@@ -4,7 +4,9 @@ public class Character : MonoBehaviour
 {
     public Vector2Int currentTilePosition;  // The current position of the character on the grid
     public GridManager gridManager;  // Reference to the GridManager to get tile data
+    public CombatManager combatManager;
     public DeathController deathController;  // Reference to the death controller to handle death
+    public TurnManager turnManager;
     public int baseMovementRange = 3;  // Base unmodifiable movement range
     public int movementRange = 3;  // How many tiles the character can move per turn
     public bool isFlying = false;  // Is this character flying?
@@ -70,17 +72,24 @@ public class Character : MonoBehaviour
             Debug.LogWarning("Target tile is null. Cannot move.");
             return;
         }
-
+        if (targetTile.isOccupied)
+        {
+            public Character targetCharacter = targetTile.occupiedBy;
+            combatManager.DoWalkCombat(targetCharacter);
+            turnManager.EndTurn();
+        }
         // Check if the tile is walkable and not occupied
         if (targetTile.isWalkable && !targetTile.isOccupied && movementRange > 0)
         {
             currentTilePosition = targetPosition;
             targetTile.isOccupied = true;
+            targetTile.occupiedBy = this;
             if (targetTile.difficultTerrain)
             {
                 movementRange -= 1;
             }
             currentTile.isOccupied = false;
+            currentTile.occupiedBy = null;
             
             transform.position = new Vector3(targetPosition.x * gridManager.tileSize, targetPosition.y * gridManager.tileSize, 0);
             movementRange--;  // Decrease movement range after moving

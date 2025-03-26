@@ -14,9 +14,11 @@ public class BracerManager : MonoBehaviour
 	public int BracerMode = 1;
  	public int BracerEnergy = 100;
   	public Character character;
+   	public TurnManager turnManager;
    	public int baseChargeRate = 10;
    	public int chargeRate = 10;
     	public bool weaponMode = true;
+     	public Character player = turnManager.playerCharacter;
     
 	// Bracer modes range from 1-27, depending on the current combination.
 
@@ -107,84 +109,84 @@ public class BracerManager : MonoBehaviour
 
      public void UseBracer() // Do bracer actions, depending on mode.
     {
-    	if (LastBracerMode != BracerMode && character.isFlying)
+    	if (LastBracerMode != BracerMode && player.isFlying)
      	{
-      	   	character.isFlying = false;
+      	   	player.isFlying = false;
 	   	chargeRate = baseChargeRate;
 	}
-     	if (LastBracerMode != BracerMode && character.isHealing)
+     	if (LastBracerMode != BracerMode && player.isHealing)
      	{
-      	   	character.isHealing = false;
+      	   	player.isHealing = false;
 	   	chargeRate = baseChargeRate;
 	}
  
     	if (BracerMode == 1 && BracerEnergy>= 5) // Standard Attack, Sword
      	{
-      		character.attackDamage = 10;
-		character.attackRange = 2;
+      		player.attackDamage = 10;
+		player.attackRange = 2;
   		BracerEnergy -= 10;
     		weaponMode = true;
       	}
     	if (BracerMode == 2 && BracerEnergy >= 15) // Standard Ranged Attack, Rifle
      	{
-      		character.attackDamage = 8;
-		character.attackRange = 4;
+      		player.attackDamage = 8;
+		player.attackRange = 4;
   		BracerEnergy -= 15;
     		weaponMode = true;
       	}
     	if (BracerMode == 3 && BracerEnergy >= 20) // Standard Splash Attack, War Hammer
      	{
-      		character.attackDamage = 18;
-		character.attackRange = 1;
-  		character.attackSplash = true;
+      		player.attackDamage = 18;
+		player.attackRange = 1;
+  		player.attackSplash = true;
   		BracerEnergy -= 20;
     		weaponMode = true;
       	}
-	if (BracerMode == 8 && !character.isHealing && BracerEnergy >= 15) //Regen of 15
+	if (BracerMode == 8 && !player.isHealing && BracerEnergy >= 15) //Regen of 15
 	{
- 		character.isHealing = true;
-   		character.currentHealth += 15;
+ 		player.isHealing = true;
+   		player.currentHealth += 15;
      		chargeRate = -15;
        		weaponMode = false;
 	}
- 	if (BracerMode == 8 && character.isHealing || character.currentHealth >= character.baseHealth)
+ 	if (BracerMode == 8 && player.isHealing || player.currentHealth >= player.baseHealth)
   	{
-   		character.isHealing = false;
+   		player.isHealing = false;
      		chargeRate = baseChargeRate;
 	}
  	if (BracerMode == 10 && BracerEnergy >= 1) //Heals Equal to Energy
   	{
-   		character.currentHealth += BracerEnergy;
-     		if (character.currentHealth >= character.baseHealth)
+   		player.currentHealth += BracerEnergy;
+     		if (player.currentHealth >= player.baseHealth)
 	        {
-		        character.currentHealth = character.baseHealth;
+		        player.currentHealth = player.baseHealth;
 	        }
      		BracerEnergy = 0;
        		weaponMode = false;
 	}
-	if (BracerMode == 16 && !character.isFlying && BracerEnergy >= 10) //Flight
+	if (BracerMode == 16 && !player.isFlying && BracerEnergy >= 10) //Flight
      	{
-      		character.isFlying = true;
+      		player.isFlying = true;
 		chargeRate = -10;
   		weaponMode = false;
   	}
-  	if (BracerMode == 16 && character.isFlying)
+  	if (BracerMode == 16 && player.isFlying)
     	{
-      		character.isFlying = false;
+      		player.isFlying = false;
 		chargeRate = baseChargeRate;
   		weaponMode = false;
       	}
        	if (BracerMode == 20 && BracerEnergy >= 5) //Movement buff, maybe it also disables dangerous terrain?
      	{
-		character.movementRange = 4;
+		player.movementRange = 4;
 		BracerEnergy -= 5;
   		weaponMode = false;
       	}
     	if (BracerMode == 21 && BracerEnergy >= 50) //Bomb, Splash Attack, any tile it hits gets set on fire
      	{
-      		character.attackDamage = 45;
-		character.attackRange = 3;
-  		character.attackSplash = true;
+      		player.attackDamage = 45;
+		player.attackRange = 3;
+  		player.attackSplash = true;
   		BracerEnergy -= 50;
 		weaponMode = true;
       	}

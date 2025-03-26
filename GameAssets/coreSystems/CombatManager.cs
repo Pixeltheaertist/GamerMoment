@@ -53,6 +53,13 @@ public class CombatManager : MonoBehaviour
         {
             // Get the tile at the current step in the direction
             Tile targetTile = GetTileInDirection(direction * i);
+            Character playerCharacter = turnManager.playerCharacter;
+            
+            if (playerCharacter.attackSplash)
+            {
+                TryAOE(playerCharacter, targetTile);
+                return;
+            }
 
             if (targetTile == null)
             {
@@ -95,9 +102,77 @@ public class CombatManager : MonoBehaviour
         if (targetCharacter.currentHealth <= 0)
         {
             Destroy(targetCharacter.gameObject);
-            Debug.Log($"Killed {targetCharacter.name}");
+            Debug.Log($"Killed enemy");
         }
 
+        EndTurn();
+    }
+
+    private void TryAOE(Character playerCharacter, Tile targetTile)
+    {
+        Vector2Int targetZone = targetTile.position;
+        Vector2Int up = targetZone + Vector2Int.up;
+        Vector2Int down = targetZone + Vector2Int.down;
+        Vector2Int left = targetZone + Vector2Int.left;
+        Vector2Int right = targetZone + Vector2Int.right;
+
+        Tile targetUp = turnManager.gridManager.GetTileAtPosition(up);
+        Tile targetDown = turnManager.gridManager.GetTileAtPosition(down);
+        Tile targetLeft = turnManager.gridManager.GetTileAtPosition(left);
+        Tile targetRight = turnManager.gridManager.GetTileAtPosition(right);
+
+        if (targetUp != null && targetUp.isOccupied)
+        {
+            Character targetCharacterUp = targetUp.occupiedBy;
+            if (!targetCharacterUp.Player)
+            {
+                targetCharacterUp.currentHealth -= playerCharacter.attackDamage;
+                if (targetCharacterUp.currentHealth <= 0)
+                {
+                    Destroy(targetCharacterUp.gameObject);
+                    Debug.Log($"Killed enemy");
+                }
+            }
+        }
+        if (targetDown != null && targetDown.isOccupied)
+        {
+            Character targetCharacterDown = targetDown.occupiedBy;
+            if (!targetCharacterDown.Player)
+            {
+                targetCharacterDown.currentHealth -= playerCharacter.attackDamage;
+                if (targetCharacterDown.currentHealth <= 0)
+                {
+                    Destroy(targetCharacterDown.gameObject);
+                    Debug.Log($"Killed enemy");
+                }
+            }
+        }
+        if (targetLeft != null && targetLeft.isOccupied)
+        {
+            Character targetCharacterLeft = targetLeft.occupiedBy;
+            if (!targetCharacterLeft.Player)
+            {
+                targetCharacterLeft.currentHealth -= playerCharacter.attackDamage;
+                if (targetCharacterLeft.currentHealth <= 0)
+                {
+                    Destroy(targetCharacterLeft.gameObject);
+                    Debug.Log($"Killed enemy");
+                }
+            }
+        }
+        if (targetRight != null && targetRight.isOccupied)
+        {
+            Character targetCharacterRight = targetRight.occupiedBy;
+            if (!targetCharacterRight.Player)
+            {
+                targetCharacterRight.currentHealth -= playerCharacter.attackDamage;
+                if (targetCharacterRight.currentHealth <= 0)
+                {
+                    Destroy(targetCharacterRight.gameObject);
+                    Debug.Log($"Killed enemy");
+                }
+            }
+        }
         EndTurn();
     }
 

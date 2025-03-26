@@ -19,6 +19,7 @@ public class BracerManager : MonoBehaviour
    	public int chargeRate = 10;
     	public bool weaponMode = true;
      	public Character player = turnManager.playerCharacter;
+      	public int drainAmount = 10;
     
 	// Bracer modes range from 1-27, depending on the current combination.
 

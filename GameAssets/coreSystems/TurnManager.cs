@@ -164,6 +164,7 @@ public class TurnManager : MonoBehaviour
             {
                 if (bracerManager != null)
                 {
+                    bracerManager.UpdateBracer();
                     bracerManager.UseBracer();
                     if (bracerManager.weaponMode && combatManager != null)
                     {
@@ -201,11 +202,6 @@ public class TurnManager : MonoBehaviour
         currentCharacter.aiming = false;
 
         currentCharacterIndex = (currentCharacterIndex + 1) % characters.Count;
-
-        if (bracerManager != null)
-        {
-            bracerManager.UpdateBracer();
-        }
 
         isPlayerTurn = !isPlayerTurn; // Switch turns
     }

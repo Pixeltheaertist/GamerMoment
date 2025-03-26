@@ -1,7 +1,7 @@
 This file holds documentation on core systems stored in Secret_TECHnique_2025/core
 
 
-TurnManager - Handles turn management for movement, both player and AI
+TurnManager - Handles turn-based events for all actions, both player and AI
      > Relevant variables: playerCharacter, isPlayerTurn
 
 Character - Handles characters. This includes applying movement, affecting characters based on Tile interaction, and controlling character attributes.
@@ -17,7 +17,8 @@ Tile - Handles base tile types, including characteristics that impede or kill ch
     > Relevant code: GetTileAtPosition
 
 BracerManager - Controls changing Bracer rings, and defines the current bracer "mode" as well as bracer interactions
-    > Relevant variables: BracerEnergy, BracerMode, chargeRate, baseChargeRate, LastBracerMode, weaponMode, player,
+    > Relevant variables: BracerEnergy, BracerMode, chargeRate, baseChargeRate, LastBracerMode, weaponMode, player
+    > Relevant code: UpdateBracer, UseBracer
 
 CombatManager - Controls combat, including walk-combat and aimed attacks
      > Relevant variables: combatPhase 

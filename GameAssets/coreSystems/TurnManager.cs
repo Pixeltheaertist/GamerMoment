@@ -19,6 +19,8 @@ public class TurnManager : MonoBehaviour
     {
         GameObject playerObject = GameObject.Find("PlayerCharacter");
 
+        Character playerCharacter = playerObject.GetComponent<Character>(); // Saves the playercharacter roundstart to be referenced elsewhere
+
         if (playerObject != null)
         {
             Character playerCharacter = playerObject.GetComponent<Character>();

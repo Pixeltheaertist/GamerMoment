@@ -16,7 +16,7 @@ public class BracerManager : MonoBehaviour
   	public Character character;
    	public int baseChargeRate = 10;
    	public int chargeRate = 10;
-    public bool weaponMode = true;
+    	public bool weaponMode = true;
     
 	// Bracer modes range from 1-27, depending on the current combination.
 
@@ -188,11 +188,15 @@ public class BracerManager : MonoBehaviour
   		BracerEnergy -= 50;
 		weaponMode = true;
       	}
-       if (BracerMode == 27) // Confetti!
-       {
+        if (BracerMode == 26) // 3-3-3 combo, perhaps shield or a random TP. Neither of those are set up code wise yet.
+	{
+ 		//code goes here
+	}
+	if (BracerMode == 27) // Confetti!
+	{
        		BracerEnergy += 1;
 	 	weaponMode = false;
-       }
+	}
      	Debug.Log("Bracer has been used in mode: " + BracerMode);
       	LastBracerMode = BracerMode;
     }

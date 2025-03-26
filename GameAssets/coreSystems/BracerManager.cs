@@ -19,7 +19,7 @@ public class BracerManager : MonoBehaviour
    	public int chargeRate = 10;
     	public bool weaponMode = true;
      	public Character player = turnManager.playerCharacter;
-      	public int drainAmount = 10;
+      	public int drainAmount = 0;
     
 	// Bracer modes range from 1-27, depending on the current combination.
 
@@ -122,14 +122,14 @@ public class BracerManager : MonoBehaviour
      	{
       		player.attackDamage = 10;
 		player.attackRange = 2;
-  		BracerEnergy -= 10;
+  		drainAmount = 10;
     		weaponMode = true;
       	}
     	if (BracerMode == 2 && BracerEnergy >= 15) // Standard Ranged Attack, Rifle
      	{
       		player.attackDamage = 8;
 		player.attackRange = 4;
-  		BracerEnergy -= 15;
+  		drainAmount = 15;
     		weaponMode = true;
       	}
     	if (BracerMode == 3 && BracerEnergy >= 20) // Standard Splash Attack, War Hammer
@@ -137,7 +137,7 @@ public class BracerManager : MonoBehaviour
       		player.attackDamage = 18;
 		player.attackRange = 1;
   		player.attackSplash = true;
-  		BracerEnergy -= 20;
+  		drainAmount = 20;
     		weaponMode = true;
       	}
 	if (BracerMode == 8 && !player.isHealing && BracerEnergy >= 15) //Regen of 15
@@ -185,7 +185,7 @@ public class BracerManager : MonoBehaviour
       		player.attackDamage = 45;
 		player.attackRange = 3;
   		player.attackSplash = true;
-  		BracerEnergy -= 50;
+  		drainAmount = 50;
 		weaponMode = true;
       	}
         if (BracerMode == 26) // 3-3-3 combo, perhaps shield or a random TP. Neither of those are set up code wise yet.

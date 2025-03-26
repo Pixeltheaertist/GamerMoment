@@ -66,7 +66,6 @@ public class BracerManager : MonoBehaviour
 			Brace1 = 1;
 		}
 		Debug.Log("Bracer ring 1 changed to state: " + Brace1);
-  		UpdateBracer();
 	}
 	
 	public void BraceChange2()
@@ -77,7 +76,6 @@ public class BracerManager : MonoBehaviour
 			Brace2 = 1;
 		}
 		Debug.Log("Bracer ring 2 changed to state: " + Brace2);
-  		UpdateBracer();
 	}
 	
 	public void BraceChange3()
@@ -88,7 +86,6 @@ public class BracerManager : MonoBehaviour
 			Brace3 = 1;
 		}
 		Debug.Log("Bracer ring 3 changed to state: " + Brace3);
-  		UpdateBracer();
 	}
 	
 	// This will store combinations that the bracer is in, or it's "mode"

@@ -164,12 +164,13 @@ public class TurnManager : MonoBehaviour
             {
                 if (bracerManager != null)
                 {
-                    bracerManager.UpdateBracer();
-                    bracerManager.UseBracer();
-                    if (bracerManager.weaponMode && combatManager != null)
+                    bracerManager.UpdateBracer(); // Updates the current bracer mode
+                    bracerManager.UseBracer(); // Activates the current bracer mode
+                    bracerManager.BracerEnergy -= bracerManager.drainAmount; // Drains the bracer by the amount specified by the bracer mode
+                    if (bracerManager.weaponMode && combatManager != null) // If a weapon is equipped, move to the combat prompt
                     {
                         combatManager.StartCombat();  // Start combat phase
-                        currentCharacter.aiming = true;
+                        currentCharacter.aiming = true; // Stop the player from moving while aiming weapons
                         Debug.Log("Entering combat prompt.");
                     }
                     else
@@ -180,7 +181,7 @@ public class TurnManager : MonoBehaviour
             }
         }
         
-        if (currentCharacter.movementRange <= 0)
+        if (currentCharacter.movementRange <= 0) // If all moves have been spent, end the turn.
         {
             EndTurn();
         }

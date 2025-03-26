@@ -162,6 +162,10 @@ public class BracerManager : MonoBehaviour
      		BracerEnergy = 0;
        		weaponMode = false;
 	}
+ 	if (BracerMode == 13 && BracerEnergy >= 40) //Random Teleport, or go back to spawn, whatever is easier to code
+  	{
+   		//Code goes here
+	}
 	if (BracerMode == 16 && !player.isFlying && BracerEnergy >= 10) //Flight
      	{
       		player.isFlying = true;
@@ -188,9 +192,13 @@ public class BracerManager : MonoBehaviour
   		drainAmount = 50;
 		weaponMode = true;
       	}
-        if (BracerMode == 26) // 3-3-3 combo, perhaps shield or a random TP. Neither of those are set up code wise yet.
+        if (BracerMode == 26 && BracerEnergy >= 30) // 3-3-3 combo, Sets shield to super high but can't move
 	{
- 		//code goes here. 6 shield no move
+ 		player.shield = 6;
+		player.movementRange = 1;
+		chargeRate -= 20;
+  		weaponMode = false;
+    		//Note to self, either disable attacking, or just test the theory that they will not have enough energy	to keep up this mode AND attack for the whole fight
 	}
 	if (BracerMode == 27) // Confetti!
 	{

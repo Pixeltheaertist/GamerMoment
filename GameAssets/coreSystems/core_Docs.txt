@@ -10,7 +10,7 @@ Character - Handles characters. This includes applying movement, affecting chara
 
 DeathManager - Handles dying. Contains the systems that trigger a game over, deleting all characters and then overlaying a screen.
 
-GridManager - Handles grids and tile calculation. Notifies characters on positions of targetted tiles for movement.
+GridManager - Handles grids and tile calculation. Calculates characters on positions of targetted tiles for movement. Also snaps 'tiles' together on Start to form one cohesive map.
 
 Tile - Handles base tile types, including characteristics that impede or kill characters depending on character attributes.
     > Relevant variables: difficultTerrain, isPit, isDeadly, isWalkable, hasCorpse, onFire, isOccupied, occupiedBy

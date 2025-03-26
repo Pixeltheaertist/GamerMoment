@@ -14,7 +14,7 @@ GridManager - Handles grids and tile calculation. Calculates characters on posit
 
 Tile - Handles base tile types, including characteristics that impede or kill characters depending on character attributes.
     > Relevant variables: difficultTerrain, isPit, isDeadly, isWalkable, hasCorpse, onFire, isOccupied, occupiedBy
-     > Relevant code: GetTileAtPosition
+    > Relevant code: GetTileAtPosition
 
 BracerManager - Controls changing Bracer rings, and defines the current bracer "mode" as well as bracer interactions
     > Relevant variables: BracerEnergy, BracerMode, chargeRate, baseChargeRate, LastBracerMode, weaponMode, player,

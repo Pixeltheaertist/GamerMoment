@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
     public bool attackSplash = false;  // If an attack splashes to all tiles around it
     public bool isPoisoned = false;  // Is this character poisoned?
     public bool aiming = false;
+    public int sight = 5; //How far away can the character see?
 
     void Start()
     {

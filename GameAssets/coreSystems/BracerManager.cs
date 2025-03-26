@@ -198,7 +198,12 @@ public class BracerManager : MonoBehaviour
 		player.movementRange = 1;
 		chargeRate -= 20;
   		weaponMode = false;
-    		//Note to self, either disable attacking, or just test the theory that they will not have enough energy	to keep up this mode AND attack for the whole fight
+	}
+ 	if (BracerMode == 26 && BraceryEnergy <= 0 || player.shield = 6)
+  	{
+   		player.shield = 0;
+     		chargeRate = baseChargeRate;
+       		weaponMode = false;
 	}
 	if (BracerMode == 27) // Confetti!
 	{

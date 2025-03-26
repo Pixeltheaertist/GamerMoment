@@ -17,7 +17,7 @@ Tile - Handles base tile types, including characteristics that impede or kill ch
     > Relevant code: GetTileAtPosition
 
 BracerManager - Controls changing Bracer rings, and defines the current bracer "mode" as well as bracer interactions
-    > Relevant variables: BracerEnergy, BracerMode, chargeRate, baseChargeRate, LastBracerMode, weaponMode, player
+    > Relevant variables: BracerEnergy, BracerMode, chargeRate, baseChargeRate, LastBracerMode, weaponMode, player, drainAmount
     > Relevant code: UpdateBracer, UseBracer
 
 CombatManager - Controls combat, including walk-combat and aimed attacks

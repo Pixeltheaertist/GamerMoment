@@ -118,7 +118,7 @@ public class BracerManager : MonoBehaviour
 	   	chargeRate = baseChargeRate;
 	}
  
-    	if (BracerMode == 1 && BracerEnergy>= 5) // Standard Attack, Sword
+    	if (BracerMode == 1 && BracerEnergy>= 5) // 1-1-1, Standard Attack, Sword
      	{
       		player.attackDamage = 10;
 		player.attackRange = 2;
@@ -152,7 +152,7 @@ public class BracerManager : MonoBehaviour
    		player.isHealing = false;
      		chargeRate = baseChargeRate;
 	}
- 	if (BracerMode == 10 && BracerEnergy >= 1) //Heals Equal to Energy
+ 	if (BracerMode == 10 && BracerEnergy >= 1) // 2-2-2, Heals Equal to Energy
   	{
    		player.currentHealth += BracerEnergy;
      		if (player.currentHealth >= player.baseHealth)

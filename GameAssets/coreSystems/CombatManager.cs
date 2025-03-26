@@ -108,25 +108,25 @@ public class CombatManager : MonoBehaviour
         EndTurn();
     }
 
-    private void TryAOE(Character playerCharacter, Tile targetTile)
+    private void TryAOE(Character playerCharacter, Tile targetTile) // Tries to deal AOE damage to enemies
     {
-        Vector2Int targetZone = targetTile.position;
+        Vector2Int targetZone = targetTile.position; // Get up, down, left and right of the targetted tile.
         Vector2Int up = targetZone + Vector2Int.up;
         Vector2Int down = targetZone + Vector2Int.down;
         Vector2Int left = targetZone + Vector2Int.left;
         Vector2Int right = targetZone + Vector2Int.right;
 
-        Tile targetUp = turnManager.gridManager.GetTileAtPosition(up);
+        Tile targetUp = turnManager.gridManager.GetTileAtPosition(up); // Get the tiles adjacent to the target.
         Tile targetDown = turnManager.gridManager.GetTileAtPosition(down);
         Tile targetLeft = turnManager.gridManager.GetTileAtPosition(left);
         Tile targetRight = turnManager.gridManager.GetTileAtPosition(right);
 
         if (targetUp != null && targetUp.isOccupied)
         {
-            Character targetCharacterUp = targetUp.occupiedBy;
+            Character targetCharacterUp = targetUp.occupiedBy; // Confirm that those tiles are occupied, and the occupee is not the player
             if (!targetCharacterUp.Player)
             {
-                targetCharacterUp.currentHealth -= playerCharacter.attackDamage;
+                targetCharacterUp.currentHealth -= playerCharacter.attackDamage; // Deal damage
                 if (targetCharacterUp.currentHealth <= 0)
                 {
                     Destroy(targetCharacterUp.gameObject);
@@ -173,7 +173,7 @@ public class CombatManager : MonoBehaviour
                 }
             }
         }
-        EndTurn();
+        EndTurn(); // End the turn after the attack
     }
 
     // End combat and call EndTurn on TurnManager

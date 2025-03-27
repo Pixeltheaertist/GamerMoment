@@ -150,14 +150,12 @@ public class BracerManager : MonoBehaviour
  		player.currentHealth -= 90
    		weaponMode = false;
 	}
-	if (BracerMode == 6 && Bracer Energy >= 25) // Charge that applies poison and knockback
+	if (BracerMode == 6 && Bracer Energy >= 25) // Knife that applies poison
  	{
   		player.attackDamage = 12;
 		player.attackRange = 1;
   		drainAmount = 25;
     		combat.targetCharacter.isPoisoned = true;
-      		combat.GetTileInDirection(direction * i);
-		//code the rest
     		weaponMode = true;
 	}
 	if (BracerMode == 8 && !player.isHealing && BracerEnergy >= 15) //Regen of 15

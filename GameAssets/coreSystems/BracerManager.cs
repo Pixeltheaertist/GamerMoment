@@ -19,6 +19,7 @@ public class BracerManager : MonoBehaviour
    	public int chargeRate = 10;
     	public bool weaponMode = true;
      	public Character player = turnManager.playerCharacter;
+      	public CombatManager combat;
       	public int drainAmount = 0;
     
 	// Bracer modes range from 1-27, depending on the current combination.
@@ -140,11 +141,18 @@ public class BracerManager : MonoBehaviour
   		drainAmount = 20;
     		weaponMode = true;
       	}
-	if (BracerMode == 6 && Bracer Energy >= 25) // Charge that applies poison
+       	if (BracerMode == 4) // Harms the player significantly
+	{
+ 		player.currentHealth -= 90
+	}
+	if (BracerMode == 6 && Bracer Energy >= 25) // Charge that applies poison and knockback
  	{
-  		character.attackDamage = 12;
-		character.attackRange = 1;
+  		player.attackDamage = 12;
+		player.attackRange = 1;
   		drainAmount = 25;
+    		combat.targetCharacter.isPoisoned = true;
+      		combat.GetTileInDirection(direction * i);
+		//code the rest
     		weaponMode= true;
 	}
 	if (BracerMode == 8 && !player.isHealing && BracerEnergy >= 15) //Regen of 15
@@ -169,9 +177,22 @@ public class BracerManager : MonoBehaviour
      		BracerEnergy = 0;
        		weaponMode = false;
 	}
- 	if (BracerMode == 13 && BracerEnergy >= 40) //Random Teleport, or go back to spawn, whatever is easier to code
+ 	if (BracerMode == 13 && BracerEnergy >= 40) //Teleports player back to spawn
   	{
-   		//Code goes here
+   		player.targetPosition = new Vector2Int(0, 0);
+     		player.currentTilePosition = targetPosition;
+            	player.targetTile.isOccupied = true;
+            	player.targetTile.occupiedBy = this;
+            	player.currentTile.isOccupied = false;
+            	player.currentTile.occupiedBy = null;
+	     	BracerEnergy -= 40;
+       		weaponMode = false;
+	}
+ 	if (BracerMode == 15) //Deals 55 damage, Increases base charge rate by 5
+  	{
+   		player.currentHealth -= 55;
+     		baseChargeRate += 5;
+       		weaponMode = false;
 	}
 	if (BracerMode == 16 && !player.isFlying && BracerEnergy >= 10) //Flight
      	{
@@ -185,13 +206,25 @@ public class BracerManager : MonoBehaviour
 		chargeRate = baseChargeRate;
   		weaponMode = false;
       	}
-       	if (BracerMode == 18 && BracerEnergy >= 75) //Huge laser in all directions
+       	if (BracerMode == 18 && BracerEnergy >= 75) //Huge laser in all directions, weapon mode is false to circumvent aiming
 	{
 		character.attackDamage = 75;
 		character.attackRange = 20;
-  		drainAmount = 75;
-    		weaponMode = true;
+  		BracerEnergy -= 75;
+    		combat.TryAttack(Vector2Int.up, player.attackRange);
+      		combat.TryAttack(Vector2Int.down, player.attackRange);
+		combat.TryAttack(Vector2Int.left, player.attackRange);
+  		combat.TryAttack(Vector2Int.right, player.attackRange);
+    		weaponMode = false;
     	}
+     	if (BracerMode == 19 && player.isPoisoned == false) //Poisons the player, but also allows you to cure yourself
+      	{
+       		player.isPoisoned == true
+	}
+ 	if (BracerMode == 19 && player.isPoisoned == true)
+  	{
+   		player.isPoisoned == false
+	}
        	if (BracerMode == 20 && BracerEnergy >= 5) //Movement buff, maybe it also disables dangerous terrain?
      	{
 		player.movementRange = 4;
@@ -212,6 +245,10 @@ public class BracerManager : MonoBehaviour
 		player.movementRange = 1;
 		chargeRate -= 20;
   		weaponMode = false;
+	}
+ 	if (BracerMode == 23 && BracerEnergy >= 1)
+  	{
+   
 	}
  	if (BracerMode == 26 && BraceryEnergy <= 0 || player.shield = 6)
   	{

@@ -178,6 +178,13 @@ public class BracerManager : MonoBehaviour
 		chargeRate = baseChargeRate;
   		weaponMode = false;
       	}
+       	if (BracerMode == 18 && BracerEnergy >= 75) //Huge laser in all directions
+	{
+		character.attackDamage = 75;
+		character.attackRange = 20;
+  		drainAmount = 75;
+    		weaponMode = true;
+    	}
        	if (BracerMode == 20 && BracerEnergy >= 5) //Movement buff, maybe it also disables dangerous terrain?
      	{
 		player.movementRange = 4;

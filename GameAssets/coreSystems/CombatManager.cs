@@ -71,7 +71,7 @@ public class CombatManager : MonoBehaviour
             if (targetTile.isOccupied)
             {
                 Character targetCharacter = targetTile.occupiedBy;
-                Debug.Log($"Found target at distance {i}. Attacking {targetCharacter.name}");
+                Debug.Log($"Found target at distance {i}. Attacking.");
                 DoWalkCombat(targetCharacter);
                 return; // End the loop once an attack is made
             }
@@ -97,7 +97,7 @@ public class CombatManager : MonoBehaviour
         Character playerCharacter = turnManager.playerCharacter;
         targetCharacter.currentHealth -= playerCharacter.attackDamage;
 
-        Debug.Log($"Dealt {playerCharacter.attackDamage} damage to {targetCharacter.name}, current health: {targetCharacter.currentHealth}");
+        Debug.Log($"Dealt {playerCharacter.attackDamage} damage to, current health: {targetCharacter.currentHealth}");
 
         if (targetCharacter.currentHealth <= 0)
         {

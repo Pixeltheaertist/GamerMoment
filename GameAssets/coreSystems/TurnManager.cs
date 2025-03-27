@@ -195,6 +195,17 @@ public class TurnManager : MonoBehaviour
 
     public void EndTurn()
     {
+        //Checks if current health is above max health and sets health to max health if so
+        if (currentCharacter.currentHealth > currentCharacter.baseHealth)
+        {
+            currentCharacter.currentHealth = currentCharacter.baseHealth;
+        }
+        //Checks if health is equal to or below zero and destroys the current character if so.
+        if (currentCharacter.currentHealth <= 0)
+        {
+            destroy(currentCharacter.gameObject);
+        }
+        
         Character currentCharacter = characters[currentCharacterIndex];
         currentCharacter.ResetMovementRange();
 
@@ -203,7 +214,7 @@ public class TurnManager : MonoBehaviour
         currentCharacter.aiming = false;
 
         currentCharacterIndex = (currentCharacterIndex + 1) % characters.Count;
-
+        
         isPlayerTurn = !isPlayerTurn; // Switch turns
     }
 }

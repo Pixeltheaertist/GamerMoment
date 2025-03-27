@@ -118,6 +118,10 @@ public class BracerManager : MonoBehaviour
       	   	player.isHealing = false;
 	   	chargeRate = baseChargeRate;
 	}
+	if (LastBracerMode != BracerMode && player.movementRange ~= player.baseMovementRange)
+ 	{
+  		player.movementRange = player.baseMovementRange;
+	}
  
     	if (BracerMode == 1 && BracerEnergy>= 5) // 1-1-1, Standard Attack, Sword
      	{
@@ -144,6 +148,7 @@ public class BracerManager : MonoBehaviour
        	if (BracerMode == 4) // Harms the player significantly
 	{
  		player.currentHealth -= 90
+   		weaponMode = false;
 	}
 	if (BracerMode == 6 && Bracer Energy >= 25) // Charge that applies poison and knockback
  	{
@@ -153,7 +158,7 @@ public class BracerManager : MonoBehaviour
     		combat.targetCharacter.isPoisoned = true;
       		combat.GetTileInDirection(direction * i);
 		//code the rest
-    		weaponMode= true;
+    		weaponMode = true;
 	}
 	if (BracerMode == 8 && !player.isHealing && BracerEnergy >= 15) //Regen of 15
 	{
@@ -166,6 +171,7 @@ public class BracerManager : MonoBehaviour
   	{
    		player.isHealing = false;
      		chargeRate = baseChargeRate;
+       		weaponMode = false;
 	}
  	if (BracerMode == 10 && BracerEnergy >= 1) // 2-2-2, Heals Equal to Energy
   	{
@@ -194,6 +200,22 @@ public class BracerManager : MonoBehaviour
      		baseChargeRate += 5;
        		weaponMode = false;
 	}
+ 	if (BracerMode == 15 && baseChargeRate == 15) //Greed system
+  	{
+   		player.currentHealth -= 80;
+     		baseChargeRate += 5;
+       		weaponMode = false;
+	}
+ 	if (BracerMode == 15 && baseChargeRate == 20)
+  	{	
+    		player.currentHealth -= 110;
+      		baseChargeRate += 5;
+		weaponMode = false;
+    	}
+     	if (BracerMode == 15 && baseChargeRate == 25) //If they manage to survive the last one
+	{
+       		player.currentHealth -= 300;
+	}
 	if (BracerMode == 16 && !player.isFlying && BracerEnergy >= 10) //Flight
      	{
       		player.isFlying = true;
@@ -208,8 +230,8 @@ public class BracerManager : MonoBehaviour
       	}
        	if (BracerMode == 18 && BracerEnergy >= 75) //Huge laser in all directions, weapon mode is false to circumvent aiming
 	{
-		character.attackDamage = 75;
-		character.attackRange = 20;
+		player.attackDamage = 75;
+		player.attackRange = 20;
   		BracerEnergy -= 75;
     		combat.TryAttack(Vector2Int.up, player.attackRange);
       		combat.TryAttack(Vector2Int.down, player.attackRange);
@@ -219,11 +241,13 @@ public class BracerManager : MonoBehaviour
     	}
      	if (BracerMode == 19 && player.isPoisoned == false) //Poisons the player, but also allows you to cure yourself
       	{
-       		player.isPoisoned == true
+       		player.isPoisoned == true;
+	 	weaponMode = false;
 	}
  	if (BracerMode == 19 && player.isPoisoned == true)
   	{
-   		player.isPoisoned == false
+   		player.isPoisoned == false;
+     		weaponMode = false;
 	}
        	if (BracerMode == 20 && BracerEnergy >= 5) //Movement buff, maybe it also disables dangerous terrain?
      	{
@@ -231,24 +255,32 @@ public class BracerManager : MonoBehaviour
 		BracerEnergy -= 5;
   		weaponMode = false;
       	}
-    	if (BracerMode == 21 && BracerEnergy >= 50) //Bomb, Splash Attack, any tile it hits gets set on fire
+    	if (BracerMode == 21 && BracerEnergy >= 40) //Bomb, Splash Attack, any tile it hits gets set on fire
      	{
-      		player.attackDamage = 45;
+      		player.attackDamage = 30;
 		player.attackRange = 3;
   		player.attackSplash = true;
-  		drainAmount = 50;
+  		drainAmount = 40;
 		weaponMode = true;
       	}
+ 	if (BracerMode == 23 && BracerEnergy >= 1) //Laser pistol, sets it's damage to current energy (cap of 25)
+  	{
+   		player.attackDamage = BracerEnergy;
+     		player.attackRange = 4;
+       		drainAmount = BracerEnergy;
+	 	weaponMode = true;
+   		if (BracerEnergy > 25)
+     		{
+       			player.attackDamage = 25;
+	  		drainAmount = 25;
+		}
+	}
         if (BracerMode == 26 && BracerEnergy >= 30) // 3-3-3 combo, Sets shield to super high but can't move
 	{
  		player.shield = 6;
 		player.movementRange = 1;
 		chargeRate -= 20;
   		weaponMode = false;
-	}
- 	if (BracerMode == 23 && BracerEnergy >= 1)
-  	{
-   
 	}
  	if (BracerMode == 26 && BraceryEnergy <= 0 || player.shield = 6)
   	{

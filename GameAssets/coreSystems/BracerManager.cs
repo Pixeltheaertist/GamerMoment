@@ -121,6 +121,14 @@ public class BracerManager : MonoBehaviour
 	if (LastBracerMode != BracerMode && player.movementRange ~= player.baseMovementRange)
  	{
   		player.movementRange = player.baseMovementRange;
+    		if (player.shield > 0)
+      		{
+			player.shield = 0;
+		}
+	}
+ 	if (LastBracerMode != BracerMode && player.baseHealth = 50)
+  	{
+   		player.baseHealth = 100
 	}
  
     	if (BracerMode == 1 && BracerEnergy>= 5) // 1-1-1, Standard Attack, Sword
@@ -261,6 +269,15 @@ public class BracerManager : MonoBehaviour
   		drainAmount = 40;
 		weaponMode = true;
       	}
+       	if (BracerMode == 22 && BracerEnergy >= 20) //Railgun, too heavy to move with it, and it has a shield attatched
+	{
+ 		player.attackDamage = 20
+   		player.attackRange = 5;
+     		player.movementRange = 0;
+       		player.shield = 3;
+       		drainamount = 20;
+	 	weaponMode = true;
+	}
  	if (BracerMode == 23 && BracerEnergy >= 1) //Laser pistol, sets it's damage to current energy (cap of 25)
   	{
    		player.attackDamage = BracerEnergy;
@@ -272,6 +289,14 @@ public class BracerManager : MonoBehaviour
        			player.attackDamage = 25;
 	  		drainAmount = 25;
 		}
+	}
+ 	if (BracerMode == 24 && BracerEnergy >= 20) // Blone blade, sets HP to half max
+  	{
+   		player.attackDamage = 80;
+     		player.attackRange = 2;
+       		player.baseHealth = 50;
+	 	drainAmount = 20;
+	 	weaponMode = true;
 	}
         if (BracerMode == 26 && BracerEnergy >= 30) // 3-3-3 combo, Sets shield to super high but can't move
 	{

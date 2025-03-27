@@ -140,6 +140,13 @@ public class BracerManager : MonoBehaviour
   		drainAmount = 20;
     		weaponMode = true;
       	}
+	if (BracerMode == 6 && Bracer Energy >= 25) // Charge that applies poison
+ 	{
+  		character.attackDamage = 12;
+		character.attackRange = 1;
+  		drainAmount = 25;
+    		weaponMode= true;
+	}
 	if (BracerMode == 8 && !player.isHealing && BracerEnergy >= 15) //Regen of 15
 	{
  		player.isHealing = true;

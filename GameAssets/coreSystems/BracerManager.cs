@@ -158,13 +158,21 @@ public class BracerManager : MonoBehaviour
  		player.currentHealth -= 90
    		weaponMode = false;
 	}
-	if (BracerMode == 6 && Bracer Energy >= 25) // Knife that applies poison
+	if (BracerMode == 6 && BracerEnergy >= 25) // Knife that applies poison
  	{
   		player.attackDamage = 12;
 		player.attackRange = 1;
   		drainAmount = 25;
     		combat.targetCharacter.isPoisoned = true;
     		weaponMode = true;
+	}
+ 	if (BracerMode == 7 && BracerEnergy >= 5) // A multi-pronged stick
+  	{
+   		player.attackDamage = 2;
+     		player.attackRange =2;
+       		drainAmount = 5;
+	 	player.attackSplash = true;
+	 	weaponMode = true;
 	}
 	if (BracerMode == 8 && !player.isHealing && BracerEnergy >= 15) //Regen of 15
 	{
@@ -234,6 +242,12 @@ public class BracerManager : MonoBehaviour
 		chargeRate = baseChargeRate;
   		weaponMode = false;
       	}
+       	if (BracerMode == 17) // The gauntlet crushes your wrist, almost paralyzing you from the shock
+	{
+ 		player.movementRange = 0;
+   		player.currentHealth -= 10;
+     		BracerEnergy -= 5;
+	}
        	if (BracerMode == 18 && BracerEnergy >= 75) //Huge laser in all directions, weapon mode is false to circumvent aiming
 	{
 		player.attackDamage = 75;

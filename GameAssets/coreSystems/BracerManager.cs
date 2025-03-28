@@ -158,6 +158,10 @@ public class BracerManager : MonoBehaviour
  		player.currentHealth -= 90
    		weaponMode = false;
 	}
+ 	if (BracerMode == 5) // Plays a laugh track
+  	{
+   		//laugh track code here
+	}
 	if (BracerMode == 6 && BracerEnergy >= 25) // Knife that applies poison
  	{
   		player.attackDamage = 12;
@@ -272,7 +276,7 @@ public class BracerManager : MonoBehaviour
        	if (BracerMode == 20 && BracerEnergy >= 5) //Movement buff, maybe it also disables dangerous terrain?
      	{
 		player.movementRange = 4;
-		BracerEnergy -= 5;
+		chargeRate -= 5;
   		weaponMode = false;
       	}
     	if (BracerMode == 21 && BracerEnergy >= 40) //Bomb, Splash Attack, any tile it hits gets set on fire
@@ -304,13 +308,20 @@ public class BracerManager : MonoBehaviour
 	  		drainAmount = 25;
 		}
 	}
- 	if (BracerMode == 24 && BracerEnergy >= 20) // Blone blade, sets HP to half max
+ 	if (BracerMode == 24 && BracerEnergy >= 20) // Bone blade, sets HP to half max
   	{
    		player.attackDamage = 80;
      		player.attackRange = 2;
        		player.baseHealth = 50;
 	 	drainAmount = 20;
 	 	weaponMode = true;
+	}
+ 	if (BracerMode == 25 && BracerEnergy >= 20) // Turns your weapons into wings
+  	{
+   		player.movementRange = 6;
+     		player.isFlying = true;
+       		player.attackDamage = 0;
+	 	weaponMode = false;
 	}
         if (BracerMode == 26 && BracerEnergy >= 30) // 3-3-3 combo, Sets shield to super high but can't move
 	{

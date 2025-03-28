@@ -176,6 +176,13 @@ public class CombatManager : MonoBehaviour
         EndTurn(); // End the turn after the attack
     }
 
+    public void AIAttack(Character currentCharacter, Character playerCharacter)
+    {
+        combatPhase = true;
+        playerCharacter.currentHealth -= currentCharacter.attackDamage;
+        EndTurn();
+    }
+
     // End combat and call EndTurn on TurnManager
     private void EndTurn()
     {

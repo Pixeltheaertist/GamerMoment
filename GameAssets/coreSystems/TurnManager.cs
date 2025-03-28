@@ -9,6 +9,7 @@ public class TurnManager : MonoBehaviour
     public DeathController deathController;
     public BracerManager bracerManager;
     public CombatManager combatManager;
+    public AIManager aiManager;
 
     public void AddCharacter(Character character)
     {
@@ -189,8 +190,7 @@ public class TurnManager : MonoBehaviour
 
     void HandleAI()
     {
-        // AI logic for other characters (e.g., move randomly, or attack, etc.); placeholder.
-        EndTurn();
+        aiManager.AITurn(currentCharacter);
     }
 
     public void EndTurn()

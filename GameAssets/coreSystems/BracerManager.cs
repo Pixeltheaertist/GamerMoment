@@ -191,6 +191,10 @@ public class BracerManager : MonoBehaviour
      		chargeRate = baseChargeRate;
        		weaponMode = false;
 	}
+ 	if (BracerMode == 9 && BracerEnergy < 50) // Sets your health to energy, cap of 50
+  	{
+   		player.currentHealth = BracerEnergy;
+	}
  	if (BracerMode == 10 && BracerEnergy >= 1) // 2-2-2, Heals Equal to Energy
   	{
    		player.currentHealth += BracerEnergy;
@@ -201,6 +205,16 @@ public class BracerManager : MonoBehaviour
      		BracerEnergy = 0;
        		weaponMode = false;
 	}
+ 	if (BracerMode == 11 && sight == 5) //Blinds you
+  	{
+   		player.sight == 1;
+	}
+  	if (BracerMode == 11 && sight ~= 5)
+  	{
+   		player.sight == 5;
+	}
+ 	if (BracerMode == 12) //Does literally nothing. I'm out of ideas
+  	{}
  	if (BracerMode == 13 && BracerEnergy >= 40) //Teleports player back to spawn
   	{
    		player.targetPosition = new Vector2Int(0, 0);
@@ -211,6 +225,11 @@ public class BracerManager : MonoBehaviour
             	player.currentTile.occupiedBy = null;
 	     	BracerEnergy -= 40;
        		weaponMode = false;
+	}
+ 	if (BracerMode == 14 && BracerEnergy >= 15) //Gives 2 shield
+  	{
+   		player.shield = 2;
+     		chargeRate -= 15;
 	}
  	if (BracerMode == 15) //Deals 55 damage, Increases base charge rate by 5
   	{

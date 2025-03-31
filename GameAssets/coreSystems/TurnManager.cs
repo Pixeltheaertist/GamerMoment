@@ -24,7 +24,6 @@ public class TurnManager : MonoBehaviour
 
         if (playerObject != null)
         {
-            Character playerCharacter = playerObject.GetComponent<Character>();
             if (playerCharacter != null)
             {
                 AddCharacter(playerCharacter);
